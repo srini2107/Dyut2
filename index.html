@@ -524,6 +524,24 @@
                 padding: 12px 0
             }
         }
+
+        /* --- Fix extra white space between Hero and About Us --- */
+        .hero {
+            margin-bottom: 30px;
+            /* reduce from 60–80px default */
+        }
+
+        .about {
+            margin-top: 0;
+            /* remove top margin completely */
+            padding-top: 28px;
+            /* keep inner breathing room */
+        }
+
+        section {
+            padding-top: 0;
+            /* prevents extra white padding stacking */
+        }
     </style>
 </head>
 
