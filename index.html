@@ -376,7 +376,6 @@
             cursor: pointer
         }
 
-        /* Contact */
         /* --- CONTACT SECTION --- */
         .contact-grid {
             display: grid;
@@ -385,6 +384,7 @@
             gap: 40px;
             margin-top: 32px;
             align-items: start;
+            grid-auto-rows: minmax(min-content, max-content);
         }
 
         /* Contact form card */
@@ -396,6 +396,8 @@
             border-radius: 12px;
             padding: 28px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            box-sizing: border-box;
+            /* ensure padding doesn't overflow */
         }
 
         /* Input styling */
@@ -403,20 +405,54 @@
         input[type="email"],
         textarea {
             width: 100%;
+            max-width: 100%;
+            /* changed from 500px to fully responsive */
             padding: 12px 14px;
             border-radius: 8px;
             border: 1px solid rgba(15, 23, 42, 0.1);
             font-size: 15px;
             background: #fafafa;
             transition: all 0.2s ease;
+            box-sizing: border-box;
         }
 
+        /* Prevent textarea from resizing horizontally */
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+            overflow: auto;
+        }
+
+        /* Focus styles */
         input:focus,
         textarea:focus {
             border-color: var(--accent-2);
             outline: none;
             background: #fff;
             box-shadow: 0 0 0 3px rgba(14, 165, 164, 0.15);
+        }
+
+        /* Prevent the address card from collapsing */
+        .contact-grid>.card:last-child {
+            min-width: 260px;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            box-sizing: border-box;
+        }
+
+        /* Responsive */
+        @media (max-width: 880px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .contact-grid>.card:last-child {
+                min-width: auto;
+            }
         }
 
         /* Buttons */
