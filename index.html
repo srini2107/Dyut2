@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dyut Motors</title>
+    <meta name="description" content="Slim portfolio version of Dyut Motors — Home • About • Gallery • Contact" />
+
+    <style>
+        /* Reset / base */
+        :root {
+            --bg: #ffffff;
+            --muted: #6b7280;
+            --accent: #0f172a;
+            --accent-2: #0ea5a4;
+            --card: #f8fafc;
+            --glass: rgba(15, 23, 42, 0.06);
+            --max-width: 980px;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--accent);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: var(--max-width);
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 15px;
+            /* position: sticky; */
+            top: 12px;
+            background: linear-gradient(180deg, rgba(239, 238, 238, 0.85), rgba(255, 255, 255, 0.6));
+            backdrop-filter: blur(6px);
+            z-index: 10;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--accent);
+        }
+
+        .logo {
+
+            height: 84px;
+            /* border-radius: 8px; */
+            /* background: linear-gradient(135deg, var(--accent-2), #0369a1); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* color: white; */
+            font-weight: 700;
+            margin: 5px;
+            font-size: 20px;
+            /* box-shadow: 0 6px 14px rgba(4, 8, 20, 0.08); */
+        }
+
+        nav a {
+            margin-left: 18px;
+            padding-right: 5px;
+            /* more spacing between links */
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 700;
+            /* make it bolder */
+            font-size: 17px;
+            /* increase from 14px → 17px */
+            letter-spacing: 0.3px;
+            /* slightly spaced letters for readability */
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-2);
+            /* accent hover color */
+            transform: scale(1.05);
+            /* subtle zoom effect */
+        }
+
+
+        /* Hero */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin-top: 28px;
+            padding: 26px;
+            border-radius: 14px;
+            background: var(--card);
+            box-shadow: 0 6px 18px rgba(8, 15, 30, 0.04);
+        }
+
+        .hero-left {
+            flex: 1
+        }
+
+        h1 {
+            margin: 0 0 8px 0;
+            font-size: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        p.lead {
+            margin: 0 0 16px 0;
+            color: var(--muted);
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .btn {
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent-2);
+            color: white;
+            box-shadow: 0 4px 12px rgba(4, 8, 20, 0.1);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            color: var(--accent);
+        }
+
+        .hero-right {
+            width: 420px;
+            height: 340px;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass);
+        }
+
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        /* Sections */
+        section {
+            margin-top: 28px;
+            padding: 18px 0
+        }
+
+        .container {
+            padding: 0 6px
+        }
+
+        /* UPDATED About area: slightly larger cards */
+        /* Updated About Section — matches Home layout */
+        /* --- ABOUT US SECTION (Unified Look) --- */
+        .about {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: var(--card);
+            box-shadow: 0 6px 18px rgba(8, 15, 30, 0.04);
+            border-radius: 16px;
+            padding: 36px;
+            margin-top: 40px;
+        }
+
+        /* Left text side */
+        .about-content {
+            flex: 1;
+            font-family: inherit;
+            /* ensures same font as rest of site */
+        }
+
+        .about-content h2 {
+            font-size: 28px;
+            font-weight: 650;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--muted);
+            margin-bottom: 14px;
+            font-family: inherit;
+            /* keep same Inter/system font */
+        }
+
+        /* Right image */
+        .about-img {
+            flex: 0 0 400px;
+            height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Make section responsive */
+        @media (max-width: 880px) {
+            .about {
+                flex-direction: column;
+                padding: 24px;
+                text-align: left;
+            }
+
+            .about-img {
+                width: 100%;
+                height: 220px;
+            }
+        }
+
+
+        .about-img {
+            width: 100%;
+            height: 220px;
+        }
+
+
+
+
+        .about .info {
+            color: var(--muted)
+        }
+
+        .skills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 12px
+        }
+
+        .chip {
+            background: var(--glass);
+            padding: 8px 10px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* 3 images per row */
+            gap: 16px;
+            /* space between images */
+        }
+
+        .gallery-grid button {
+            border: 0;
+            padding: 0;
+            background: transparent;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            /* make images taller */
+            object-fit: cover;
+            /* maintain aspect ratio */
+            display: block;
+            transition: transform 0.25s ease;
+        }
+
+        .gallery-grid button:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive behavior: stack into 2 columns and then 1 on small screens */
+        @media (max-width: 880px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid img {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid img {
+                height: 180px;
+            }
+        }
+
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .lightbox.open {
+            display: flex
+        }
+
+        .lightbox img {
+            max-width: 96%;
+            max-height: 86%;
+            border-radius: 8px;
+            box-shadow: 0 18px 50px rgba(2, 6, 23, 0.6)
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            background: transparent;
+            border: 0;
+            color: white;
+            font-size: 26px;
+            cursor: pointer
+        }
+
+        /* Contact */
+        /* --- CONTACT SECTION --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            /* gives form more width */
+            gap: 40px;
+            margin-top: 32px;
+            align-items: start;
+        }
+
+        /* Contact form card */
+        .contact-grid .card form {
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            /* subtle border */
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Input styling */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(15, 23, 42, 0.1);
+            font-size: 15px;
+            background: #fafafa;
+            transition: all 0.2s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--accent-2);
+            outline: none;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(14, 165, 164, 0.15);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent-2);
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #089e9e;
+        }
+
+        .btn-ghost {
+            background: #fff;
+            border: 1px solid rgba(15, 23, 42, 0.12);
+            color: var(--accent);
+        }
+
+        /* Right-side info card */
+        .contact-grid .card:last-child {
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Responsive */
+        @media (max-width: 880px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+
+        footer {
+            margin-top: 32px;
+            padding: 18px 0;
+            color: var(--muted);
+            font-size: 15px;
+            text-align: center
+        }
+
+        /* --- Scroll-to-top button --- */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            background: var(--accent-2);
+            color: white;
+            border: none;
+            outline: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+            /* hidden initially */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        #scrollTopBtn:hover {
+            background: #089e9e;
+            transform: translateY(-3px);
+        }
+
+
+        /* Responsive */
+        @media (max-width:880px) {
+            .about {
+                grid-template-columns: 1fr
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .hero-right {
+                width: 100%;
+                height: 180px
+            }
+
+            nav {
+                display: none
+            }
+
+            header {
+                padding: 12px 0
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap" id="top">
+        <header>
+
+            <img src="images/img1.png" class="logo" alt="Featured vehicle" loading="lazy">
+
+
+
+
+            <nav aria-label="Primary">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <!-- HERO / HOME -->
+        <section id="home" class="hero" aria-labelledby="home-heading">
+            <div class="hero-left">
+                <h1 id="home-heading">Dyut Motors — Engineered with passion</h1>
+                <p class="info"> Dyut Motors is dedicated to providing high-performance motors,
+                    propellers, drones. Our mission is to deliver quality, reliability, and innovation to
+                    empower your next project.</p>
+                <p class="info">
+                    With over years of experience in the design, manufacturing, and
+                    testing of hobby and commercial propellers, Dyut motors combines our
+                    expertise and cutting-edge technology with tireless operation and
+                    quality control to create one of the best performing propellers in
+                    the market. Our mission is simple - “propulsion”!
+                </p>
+
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="#gallery">View Gallery</a>
+                    <a class="btn btn-ghost" href="#contact">Get in touch</a>
+                </div>
+
+                <div style="margin-top:14px;color:var(--muted);font-size:14px">
+                    <strong>Location:</strong> Bangalore, India • <strong>Services:</strong> Custom builds • Repairs •
+                    Parts
+                </div>
+            </div>
+
+            <div class="hero-right" aria-hidden="true">
+                <!-- Replace with a key image / hero image -->
+                <img src="images/123.jpeg" alt="Featured vehicle" loading="lazy">
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" aria-labelledby="about-heading">
+            <div class="about container">
+                <div class="about-content">
+                    <h2 id="about-heading">About Us</h2>
+                    <p class="info">
+                        Dyut Motors is always investigating new techniques and technologies. We ensure high-quality
+                        design and precise manufacture for items that are unique in the world by utilizing cutting-edge
+                        technologies. Your drone's or aircraft's performance and safety will be maximized at every stage
+                        of flight with a Dyut Motors propeller.
+                    </p>
+                    <p class="info">
+                        Only the best composite materials are chosen by Dyut Motors to be used in their propellers.
+                        Every blade is made entirely of composite material — not wood — and Dyut Motors has confirmed
+                        that it is appropriate for the purpose for which it was designed. Comprehensive answers for the
+                        future world.
+                    </p>
+                </div>
+
+                <div class="about-img">
+                    <img src="images/drone1 (1).jpg" alt="Dyut Motors drone" loading="lazy" />
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- GALLERY -->
+        <!-- GALLERY -->
+        <section id="gallery" aria-labelledby="gallery-heading">
+            <h2 id="gallery-heading" style="margin:6px 6px 12px 6px">Gallery</h2>
+            <div class="gallery-grid container" role="list">
+                <!-- Make sure data-full points to the real image file (large version) -->
+                <button type="button" data-full="images/drone2 (1).jpg" aria-label="Open image 1">
+                    <img src="images/drone2 (1).jpg" alt="Project 1" loading="lazy">
+                </button>
+                <button type="button" data-full="images/prope1 (1).jpg" aria-label="Open image 2">
+                    <img src="images/prope1 (1).jpg" alt="Project 2" loading="lazy">
+                </button>
+                <button type="button" data-full="images/prop2 (1).jpg" aria-label="Open image 3">
+                    <img src="images/prop2 (1).jpg" alt="Project 3" loading="lazy">
+                </button>
+                <button type="button" data-full="images/drone1 (1).jpg" aria-label="Open image 4">
+                    <img src="images/drone1 (1).jpg" alt="Project 4" loading="lazy">
+                </button>
+                <button type="button" data-full="images/img10.png" aria-label="Open image 5">
+                    <img src="images/img10.png" alt="Project 5" loading="lazy">
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+            <button class="close" aria-label="Close" id="lb-close">&times;</button>
+            <img id="lb-img" src="" alt="Expanded image">
+        </div>
+
+        <!-- CONTACT -->
+        <section id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading" style="margin:6px 6px 12px 6px">Contact</h2>
+
+            <div class="contact-grid container">
+                <div class="card">
+                    <form id="contact-form" action="javascript:void(0);" onsubmit="handleSubmit(event)">
+                        <label>
+                            <div style="font-weight:700;font-size:13px">Name</div>
+                            <input type="text" id="name" placeholder="Your name" required>
+                        </label>
+
+                        <label>
+                            <div style="font-weight:700;font-size:13px">Email</div>
+                            <input type="email" id="email" placeholder="you@example.com" required>
+                        </label>
+
+                        <label>
+                            <div style="font-weight:700;font-size:13px">Message</div>
+                            <textarea id="message" placeholder="How can we help?" required></textarea>
+                        </label>
+
+                        <div style="display:flex;gap:8px;margin-top:8px">
+                            <button type="submit" class="btn btn-primary">Send</button>
+                            <a class="btn btn-ghost" href="mailto:support@dyutmotors.com?subject=Inquiry">Email</a>
+                        </div>
+                        <div id="form-status" style="margin-top:8px;color:var(--muted);font-size:13px"></div>
+                    </form>
+                </div>
+
+                <div class="card" style="display:flex;flex-direction:column;gap:8px;justify-content:center">
+                    <div><strong>Address</strong></div>
+                    <div style="color:var(--muted)">#23B, GKVK Layout, Sri Rama Arcade Rd, Jakkur, Bangalore-560064,
+                        Karnataka, India</div>
+
+                    <div style="margin-top:12px"><strong>Phone</strong></div>
+                    <div style="color:var(--muted)">+91-9901820757</div>
+                    <div>
+                        <strong>GSTIN:</strong> 29DOJPB8311H1ZX
+                    </div>
+
+                    <div style="margin-top:12px"><strong>Follow</strong></div>
+                    <div style="color:var(--muted)">Instagram • Facebook • LinkedIn</div>
+
+                    <div style="margin-top:12px;font-size:13px;color:var(--muted)">Or use the form to send a direct
+                        message — we usually reply within 24 hours.</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            © <span id="year"></span> Dyut Motors — All rights reserved.
+        </footer>
+    </div>
+    <button id="scrollTopBtn" title="Go to top">↑</button>
+    <script>
+        // smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const href = a.getAttribute('href');
+                if (href === '#') return;
+                const el = document.querySelector(href);
+                if (el) {
+                    e.preventDefault();
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Gallery -> lightbox (robust)
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lb-img');
+        const lbClose = document.getElementById('lb-close');
+
+        document.querySelectorAll('.gallery-grid button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Prefer data-full, otherwise fallback to the thumbnail <img> src
+                let src = btn.getAttribute('data-full') || btn.querySelector('img').src || '';
+                if (!src) return;
+                // encode spaces / special chars
+                src = encodeURI(src);
+                lbImg.src = src;
+                lb.classList.add('open');
+                lb.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        lbClose.addEventListener('click', closeLb);
+        lb.addEventListener('click', (e) => {
+            if (e.target === lb) closeLb();
+        });
+
+        function closeLb() {
+            lb.classList.remove('open');
+            // small delay is fine but clearing now avoids showing stale img
+            lbImg.src = '';
+            lb.setAttribute('aria-hidden', 'true');
+        }
+
+
+        // simple contact handler - replace with real endpoint if needed
+        function handleSubmit(e) {
+            e.preventDefault && e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const status = document.getElementById('form-status');
+
+            if (!name || !email || !message) {
+                status.textContent = 'Please complete all fields.';
+                return;
+            }
+
+            // Build body with real newlines (not escaped backslashes)
+            const body = `${message}\n\nContact: ${name}\n\nEmail: ${email}`;
+
+            const subject = `Website inquiry from ${name}`;
+
+            // encodeURIComponent once — do NOT double-encode
+            const mailto = `mailto:support@dyutmotors.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // open mail client
+            window.location.href = mailto;
+            status.textContent = 'Opening your mail client...';
+        }
+
+
+        // set year
+        document.getElementById('year').textContent = new Date().getFullYear();
+        // Scroll-to-top logic
+        const scrollBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            const gallery = document.getElementById('gallery');
+            if (window.scrollY > gallery.offsetTop - 200) {
+                scrollBtn.style.display = 'block';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+    </script>
+    <!-- Scroll-to-top button -->
+
+
+</body>
+
+</html>
