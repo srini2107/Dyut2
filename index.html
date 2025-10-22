@@ -888,12 +888,23 @@
             font-weight: 400;
         }
 
-        .gallery-info {
-            /* margin: 0 6px 12px 6px; */
-            /* color: var(--muted); */
-            font-family: inherit;
-            font-size: 25px;
-            font-weight: 600;
+        .projects-content {
+            flex: 1;
+        }
+
+        .projects-content h2 {
+            font-size: 28px;
+            font-weight: 650;
+            margin: 0 0 12px;
+            color: var(--accent);
+        }
+
+        .projects-content p.info {
+            color: var(--muted);
+            line-height: 1.7;
+
+            font-size: 18px;
+            font-weight: 650;
         }
     </style>
 </head>
@@ -987,75 +998,80 @@
 
         <!-- GALLERY -->
         <section id="gallery" aria-labelledby="gallery-heading">
-            <h2 id="gallery-heading" style="margin:6px 6px 12px 6px">Our Projects</h2>
-            <p class="gallery-info">
-                Beyond propellers, Dyut Systems & Technologies provides end-to-end capabilities in propulsion
-                systems, landing gears, fuel tanks, and customized composite structures, all tailored to
-                specific mission and platform requirements. Our solutions combine advanced materials with
-                precision manufacturing to ensure seamless integration, consistent quality, and long-term
-                operational dependability.
-                With a clear vision to empower the future of aerial mobility, Dyut Systems & Technologies
-                partners with innovators, defense organizations, and OEMs to deliver reliable, high-performance
-                composite solutions that redefine the possibilities of unmanned and experimental aviation.
-            </p>
-
-            <div class="carousel" aria-roledescription="carousel">
-                <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
-
-                <div class="carousel-viewport">
-                    <div class="carousel-track">
-
-                        <!-- Slide 1 -->
-                        <button class="slide" data-full="images/tank.jpg">
-                            <img src="images/tank.jpg" alt="Project 1" loading="lazy">
-                            <div class="slide-caption">
-                                <h3>High-Endurance UAV Frame</h3>
-                                <p>Lightweight carbon-fiber structure optimized for long-duration flights.</p>
-                            </div>
-                        </button>
-
-                        <!-- Slide 2 -->
-                        <button class="slide" data-full="images/drone1 (1).jpg">
-                            <img src="images/drone1 (1).jpg" alt="Project 2" loading="lazy">
-                            <div class="slide-caption">
-                                <h3>Quadcopter Prototype</h3>
-                                <p>Designed for aerial imaging and surveillance applications.</p>
-                            </div>
-                        </button>
-
-                        <!-- Slide 3 -->
-                        <button class="slide" data-full="images/landing.jpg">
-                            <img src="images/landing.jpg" alt="Project 3" loading="lazy">
-                            <div class="slide-caption">
-                                <h3>Landing Gear Assembly</h3>
-                                <p>Durable and precision-balanced gear for stable drone landings.</p>
-                            </div>
-                        </button>
-
-                        <!-- Slide 4 -->
-                        <button class="slide" data-full="images/drone2 (1).jpg">
-                            <img src="images/drone2 (1).jpg" alt="Project 4" loading="lazy">
-                            <div class="slide-caption">
-                                <h3>Motor Propulsion System</h3>
-                                <p>High-thrust BLDC motor system engineered for power efficiency.</p>
-                            </div>
-                        </button>
-
-                        <!-- Slide 5 -->
-                        <button class="slide" data-full="images/img10.png">
-                            <img src="images/img10.png" alt="Project 5" loading="lazy">
-                            <div class="slide-caption">
-                                <h3>Propeller Design Testing</h3>
-                                <p>Advanced CFD-tested propeller for maximum lift and reduced drag.</p>
-                            </div>
-                        </button>
-
-                    </div>
+            <div class="projects container">
+                <div class="projects-content">
+                    <h2 id="gallery-heading" style="margin:6px 6px 12px 6px">Our Projects</h2>
+                    <p class="info">
+                        Beyond propellers, Dyut Systems & Technologies provides end-to-end capabilities in propulsion
+                        systems, landing gears, fuel tanks, and customized composite structures, all tailored to
+                        specific mission and platform requirements. Our solutions combine advanced materials with
+                        precision manufacturing to ensure seamless integration, consistent quality, and long-term
+                        operational dependability.
+                        With a clear vision to empower the future of aerial mobility, Dyut Systems & Technologies
+                        partners with innovators, defense organizations, and OEMs to deliver reliable, high-performance
+                        composite solutions that redefine the possibilities of unmanned and experimental aviation.
+                    </p>
                 </div>
+            </div>
+            <div class="projects-carousel">
+                <div class="carousel" aria-roledescription="carousel">
+                    <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
 
-                <button class="carousel-btn next" aria-label="Next slide">›</button>
+                    <div class="carousel-viewport">
+                        <div class="carousel-track">
 
-                <div class="carousel-dots"></div>
+                            <!-- Slide 1 -->
+                            <button class="slide" data-full="images/tank.jpg">
+                                <img src="images/tank.jpg" alt="Project 1" loading="lazy">
+                                <div class="slide-caption">
+                                    <h3>High-Endurance UAV Frame</h3>
+                                    <p>Lightweight carbon-fiber structure optimized for long-duration flights.</p>
+                                </div>
+                            </button>
+
+                            <!-- Slide 2 -->
+                            <button class="slide" data-full="images/drone1 (1).jpg">
+                                <img src="images/drone1 (1).jpg" alt="Project 2" loading="lazy">
+                                <div class="slide-caption">
+                                    <h3>Quadcopter Prototype</h3>
+                                    <p>Designed for aerial imaging and surveillance applications.</p>
+                                </div>
+                            </button>
+
+                            <!-- Slide 3 -->
+                            <button class="slide" data-full="images/landing.jpg">
+                                <img src="images/landing.jpg" alt="Project 3" loading="lazy">
+                                <div class="slide-caption">
+                                    <h3>Landing Gear Assembly</h3>
+                                    <p>Durable and precision-balanced gear for stable drone landings.</p>
+                                </div>
+                            </button>
+
+                            <!-- Slide 4 -->
+                            <button class="slide" data-full="images/drone2 (1).jpg">
+                                <img src="images/drone2 (1).jpg" alt="Project 4" loading="lazy">
+                                <div class="slide-caption">
+                                    <h3>Motor Propulsion System</h3>
+                                    <p>High-thrust BLDC motor system engineered for power efficiency.</p>
+                                </div>
+                            </button>
+
+                            <!-- Slide 5 -->
+                            <button class="slide" data-full="images/img10.png">
+                                <img src="images/img10.png" alt="Project 5" loading="lazy">
+                                <div class="slide-caption">
+                                    <h3>Propeller Design Testing</h3>
+                                    <p>Advanced CFD-tested propeller for maximum lift and reduced drag.</p>
+                                </div>
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next" aria-label="Next slide">›</button>
+
+                    <div class="carousel-dots"></div>
+                </div>
             </div>
         </section>
 
