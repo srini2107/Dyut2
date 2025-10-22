@@ -805,6 +805,7 @@
             text-align: center;
             background-color: #0ea5a4;
             color: #fff;
+            height: 100px;
         }
 
         /* --- Scroll-to-top button --- */
@@ -1208,11 +1209,15 @@
         // set year
         document.getElementById('year').textContent = new Date().getFullYear();
         // Scroll-to-top logic
+        // Scroll-to-top logic (show after leaving hero section)
         const scrollBtn = document.getElementById('scrollTopBtn');
+        const heroSection = document.querySelector('.dt-hero'); // Hero image section
 
         window.addEventListener('scroll', () => {
-            const gallery = document.getElementById('gallery');
-            if (window.scrollY > gallery.offsetTop - 100) {
+            const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+
+            // Show button when scrolled beyond hero bottom (plus small buffer)
+            if (window.scrollY > heroBottom - 200) {
                 scrollBtn.style.display = 'block';
             } else {
                 scrollBtn.style.display = 'none';
@@ -1222,6 +1227,70 @@
         scrollBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+
+        (function () {
+            const scrollBtn = document.getElementById('scrollTopBtn');
+            if (!scrollBtn) {
+                console.warn('ScrollTop button (#scrollTopBtn) not found in DOM.');
+                return;
+            }
+
+            // The element we observe: hero section
+            const hero = document.querySelector('.dt-hero') || document.querySelector('#home') || document.querySelector('header');
+
+            if (!hero) {
+                console.warn('Hero element not found (tried .dt-hero, #home, header). Update selector if needed.');
+                // fallback: show button once user scrolls 300px down
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) scrollBtn.classList.add('show');
+                    else scrollBtn.classList.remove('show');
+                });
+                return;
+            }
+
+            // We want the button to appear after the hero leaves the viewport.
+            // Create a tiny sentinel placed right at the bottom of the hero.
+            const sentinel = document.createElement('div');
+            sentinel.style.position = 'absolute';
+            sentinel.style.width = '1px';
+            sentinel.style.height = '1px';
+            sentinel.style.top = (hero.offsetTop + hero.offsetHeight) + 'px';
+            sentinel.style.left = '0';
+            sentinel.id = 'hero-sentinel';
+            // Append sentinel to body. It doesn't impact layout.
+            document.body.appendChild(sentinel);
+
+            // IntersectionObserver: when sentinel is visible (meaning the page is at/above bottom-of-hero),
+            // we hide the button. When sentinel is NOT visible (user scrolled past hero), we show it.
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // sentinel is visible => user is near top of page => hide button
+                        scrollBtn.classList.remove('show');
+                    } else {
+                        // sentinel not visible => user has scrolled past hero => show button
+                        scrollBtn.classList.add('show');
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0,
+                rootMargin: '-200px 0px 0px 0px' // tweak buffer (show earlier/later)
+            });
+
+            io.observe(sentinel);
+
+            // click behavior
+            scrollBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // adjust sentinel position on resize (hero may change height)
+            window.addEventListener('resize', () => {
+                sentinel.style.top = (hero.offsetTop + hero.offsetHeight) + 'px';
+            });
+        })();
 
         // Replace existing carousel JS with this: single-image autoplaying loop
         (function () {
