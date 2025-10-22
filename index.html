@@ -729,7 +729,7 @@
 
                         <div style="display:flex;gap:8px;margin-top:8px">
                             <button type="submit" class="btn btn-primary">Send</button>
-                            <a class="btn btn-ghost" href="mailto:support@dyutmotors.com?subject=Inquiry">Email</a>
+                            <a class="btn btn-ghost" href="mailto:dyutmotors@gmail.com?subject=Inquiry">Email</a>
                         </div>
                         <div id="form-status" style="margin-top:8px;color:var(--muted);font-size:13px"></div>
                     </form>
@@ -825,7 +825,7 @@
             const subject = `Website inquiry from ${name}`;
 
             // encodeURIComponent once — do NOT double-encode
-            const mailto = `mailto:support@dyutmotors.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const mailto = `mailto:dyutmotors@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
             // open mail client
             window.location.href = mailto;
