@@ -489,6 +489,7 @@
             /* large cinematic height */
             object-fit: cover;
             display: block;
+            object-position: center;
             /* border-radius: 14px; */
             transition: transform 0.5s ease;
         }
@@ -1270,6 +1271,15 @@
             font-weight: 600;
             color: var(--accent);
         }
+
+        .big-img {
+            width: 100%;
+            height: 100%;
+            margin-top: 28px;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+        }
     </style>
 </head>
 
@@ -1390,11 +1400,11 @@
                         <div class="carousel-track">
 
                             <!-- Slide 1 -->
-                            <button class="slide" data-full="images/tank.jpg">
-                                <img src="images/tank.jpg" alt="Project 1" loading="lazy">
+                            <button class="slide" data-full="images/drone2 (1).jpg">
+                                <img src="images/drone2 (1).jpg" alt="Project 1" loading="lazy">
                                 <div class="slide-caption">
-                                    <h3>High-Endurance UAV Frame</h3>
-                                    <p>Lightweight carbon-fiber structure optimized for long-duration flights.</p>
+                                    <h3>Motor Propulsion System</h3>
+                                    <p>High-thrust BLDC motor system engineered for power efficiency.</p>
                                 </div>
                             </button>
 
@@ -1417,12 +1427,15 @@
                             </button>
 
                             <!-- Slide 4 -->
-                            <button class="slide" data-full="images/drone2 (1).jpg">
-                                <img src="images/drone2 (1).jpg" alt="Project 4" loading="lazy">
+                            <button class="slide" data-full="images/tank.jpg">
+                                <img src="images/tank.jpg" alt="Project 4" loading="lazy">
+
                                 <div class="slide-caption">
-                                    <h3>Motor Propulsion System</h3>
-                                    <p>High-thrust BLDC motor system engineered for power efficiency.</p>
+                                    <h3>High-Endurance UAV Frame</h3>
+                                    <p>Lightweight carbon-fiber structure optimized for long-duration flights.</p>
                                 </div>
+
+
                             </button>
 
                             <!-- Slide 5 -->
