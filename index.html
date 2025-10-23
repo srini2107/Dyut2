@@ -797,16 +797,185 @@
         }
 
 
-        footer {
-            margin-top: 32px;
-            padding: 18px 0;
-            color: var(--muted);
+        /* --- FOOTER SECTION --- */
+        /* --- FOOTER SECTION --- */
+        /* Footer - refined */
+        /* FOOTER SECTION */
+        .site-footer {
+            background: #089e9e;
+            color: #ffffff;
+            padding: 30px 60px;
             font-size: 15px;
-            text-align: center;
-            background-color: #0ea5a4;
-            color: #fff;
-            height: 100px;
+            line-height: 1.6;
         }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1300px;
+            margin: 0 auto;
+            gap: 30px;
+        }
+
+        /* LEFT */
+        .footer-left {
+            flex: 1 1 360px;
+            color: #e5e7eb;
+
+        }
+
+        .footer-left p {
+            margin: 6px 0;
+
+            font-weight: 500;
+        }
+
+        .footer-left a {
+            color: #00d4c7;
+            text-decoration: none;
+        }
+
+        .footer-left a:hover {
+            text-decoration: underline;
+        }
+
+        /* CENTER */
+        .footer-center {
+            flex: 110 0 350px;
+            text-align: center;
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        /* RIGHT */
+        .footer-right {
+            flex: 0 1 220px;
+            text-align: right;
+        }
+
+        .follow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .follow span {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-btn {
+            width: 36px;
+            height: 36px;
+            background: #facc15;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0b122e;
+            transition: transform 0.2s ease, background 0.2s ease;
+            font-size: 16px;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            background: #ffb700;
+        }
+
+        /* ICON FONT (Font Awesome) */
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+
+        /* RESPONSIVE */
+        /* Mobile footer tweaks */
+        @media (max-width: 600px) {
+            .site-footer {
+                padding: 20px 18px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: stretch;
+                /* let children fill width */
+                text-align: left;
+                /* default left for readability */
+                gap: 14px;
+            }
+
+            /* Contact block: left aligned and full width */
+            .footer-left {
+                flex: none;
+                width: 100%;
+                text-align: center;
+                padding-bottom: 6px;
+            }
+
+            .footer-left p {
+                margin: 6px 0;
+            }
+
+            /* Keep the copyright centered but move it below contact */
+            .footer-center {
+                flex: none;
+                width: 100%;
+                text-align: center;
+                margin: 10px 0 6px;
+            }
+
+            /* Social icons: full width row and centered */
+            .footer-right {
+                flex: none;
+                width: 100%;
+                text-align: center;
+                margin-top: 6px;
+            }
+
+            .follow {
+                align-items: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+                gap: 12px;
+                margin-top: 6px;
+            }
+
+            /* make social circles slightly smaller on very small screens */
+            .social-btn {
+                width: 34px;
+                height: 34px;
+            }
+
+            /* lift scroll button so it doesn't overlap */
+            #scrollTopBtn {
+                bottom: 24px;
+                right: 18px;
+            }
+        }
+
+
+        /* Scroll Button Space */
+        #scrollTopBtn {
+            bottom: 80px;
+            /* lift it up slightly so it won’t overlap footer */
+        }
+
+
+        /* make sure scroll-to-top button does not overlap the social icons */
+        #scrollTopBtn {
+            right: 28px;
+            bottom: 28px;
+            /* if footer is visible we can move button up dynamically via JS if needed */
+        }
+
+
 
         /* --- Scroll-to-top button --- */
         #scrollTopBtn {
@@ -864,6 +1033,145 @@
             }
         }
 
+        /* Mobile header improvements + mobile nav toggle */
+        /* small, compact header on mobile, hide full nav and show hamburger */
+        .mobile-menu-btn {
+            display: none;
+            /* show only on small viewports */
+            background: transparent;
+            border: 0;
+            width: 44px;
+            height: 44px;
+            padding: 8px;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            z-index: 60;
+            margin-left: 8px;
+        }
+
+        /* simple hamburger lines */
+        .mobile-menu-btn .hamburger,
+        .mobile-menu-btn .hamburger::before,
+        .mobile-menu-btn .hamburger::after {
+            content: "";
+            display: block;
+            height: 2px;
+            width: 22px;
+            background: #fff;
+            border-radius: 2px;
+            transition: transform .2s ease, opacity .2s ease;
+        }
+
+        .mobile-menu-btn .hamburger::before {
+            transform: translateY(-7px);
+        }
+
+        .mobile-menu-btn .hamburger::after {
+            transform: translateY(5px);
+        }
+
+        /* when open, rotate to X */
+        .mobile-menu-btn.open .hamburger {
+            background: transparent;
+        }
+
+        .mobile-menu-btn.open .hamburger::before {
+            transform: rotate(45deg);
+            translateY(0);
+        }
+
+        .mobile-menu-btn.open .hamburger::after {
+            transform: rotate(-45deg);
+            translateY(0);
+        }
+
+        /* Mobile nav overlay (starts hidden) */
+        .mobile-nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 10, 16, 0.6);
+            display: none;
+            z-index: 55;
+            padding-top: 80px;
+            /* leave header visible */
+            text-align: center;
+        }
+
+        .mobile-nav-overlay .dt-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .mobile-nav-overlay .dt-nav a {
+            color: #fff;
+            font-size: 20px;
+            padding: 12px 18px;
+            display: inline-block;
+        }
+
+        /* Desktop: keep current nav inline */
+        @media (max-width: 880px) {
+
+            /* show mobile button, hide desktop inline nav */
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .dt-nav {
+                display: none;
+            }
+
+            /* hide inline nav on small screens */
+
+            /* header compacting */
+            .dt-header-inner {
+                padding: 8px 14px;
+                margin: 8px;
+                background: rgba(0, 0, 0, 0.24);
+                /* slightly darker glass for legibility */
+            }
+
+            /* hero content push down so text doesn't sit under header */
+            .dt-hero-content {
+                padding-top: 8vh;
+                padding-bottom: 8vh;
+            }
+
+            /* Make hero height smaller on phones so headline remains visible */
+            .dt-hero {
+                height: 60vh;
+                min-height: 360px;
+            }
+
+            /* Logo smaller */
+            .dt-logo {
+                height: 44px;
+                padding: 6px;
+            }
+
+            /* Ensure nav items in overlay are big enough for tapping */
+            .mobile-nav-overlay .dt-nav a {
+                font-weight: 700;
+            }
+        }
+
+        /* When overlay is open, show it */
+        .mobile-nav-overlay.open {
+            display: block;
+        }
+
+        /* also protect hero content from being overlapped by the absolute header */
+        body.has-mobile-menu-open {
+            overflow: hidden;
+            /* prevent background scroll when menu open */
+        }
+
+
         /* --- Fix extra white space between Hero and About Us --- */
         .hero {
             margin-bottom: 30px;
@@ -907,6 +1215,60 @@
             font-size: 18px;
             font-weight: 650;
         }
+
+        /* --- GLOBAL TYPOGRAPHY CONSISTENCY --- */
+        body {
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-weight: 400;
+            color: var(--accent);
+            line-height: 1.7;
+        }
+
+        /* Unify headings */
+        h1,
+        h2,
+        h3 {
+            font-family: inherit;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        /* Consistent paragraph and info styling */
+        p,
+        .info {
+            font-family: inherit;
+            font-weight: 400;
+            color: var(--accent);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        /* For sections like About and Home */
+        .hero-left p,
+        .about-content p {
+            color: var(--muted);
+            font-weight: 500;
+            line-height: 1.75;
+            font-size: 16px;
+        }
+
+        /* Buttons and small elements consistency */
+        .btn,
+        .cta-row a {
+            font-family: inherit;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        /* Service label under buttons */
+        .hero-left .info strong,
+        .about-content strong {
+            font-weight: 600;
+            color: var(--accent);
+        }
     </style>
 </head>
 
@@ -916,14 +1278,19 @@
     <header class="dt-header">
         <div class="dt-header-inner">
             <img src="images/img1.png" alt="Dyut Motors" class="dt-logo">
+
+            <!-- Mobile menu button -->
+            <button id="mobileMenuBtn" class="mobile-menu-btn" aria-expanded="false" aria-label="Open menu">
+                <span class="hamburger"></span>
+            </button>
+
             <nav class="dt-nav" aria-label="Primary">
-                <a href="#intro">Home</a>
+                <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#gallery">Projects</a>
-                <a href="#contact">Contact Us</a>
-                <!-- optional CTA -->
-                <!-- <a href="#contact" class="dt-cta">Contact Us</a> -->
+                <a href="#contact">Contact</a>
             </nav>
+
         </div>
     </header>
 
@@ -968,7 +1335,7 @@
 
             <div class="hero-right" aria-hidden="true">
                 <!-- Replace with a key image / hero image -->
-                <img src="images/drone2 (1).jpg" alt="Featured vehicle" loading="lazy">
+                <img src="images/tank.jpg" alt="Featured vehicle" loading="lazy">
             </div>
         </section>
 
@@ -990,7 +1357,7 @@
                 </div>
 
                 <div class="about-img">
-                    <img src="images/tank.jpg" alt="Dyut Motors drone" loading="lazy" />
+                    <img src="images/img10.png" alt="Dyut Motors drone" loading="lazy" />
                 </div>
             </div>
         </section>
@@ -1113,7 +1480,7 @@
 
                             <div class="contact-buttons">
                                 <button type="submit" class="btn btn-primary">Send</button>
-                                <a class="btn btn-ghost" href="mailto:support@dyutmotors.com?subject=Inquiry">Email</a>
+                                <a class="btn btn-ghost" href="mailto:dyutmotors@gmail.com?subject=Inquiry">Email</a>
                             </div>
 
                             <div id="form-status" class="form-status"></div>
@@ -1122,10 +1489,10 @@
 
                     <!-- Right: Google Map -->
                     <div class="map-card card">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3896.503818995233!2d77.60162677484027!3d13.075815487238253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1788a3e0162d%3A0x7c6f3a3b2f6d260b!2sSriRama%20Arcade!5e0!3m2!1sen!2sin!4v1697830912345!5m2!1sen!2sin"
-                            width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe className={styles.map} title="Dyut Motors Location"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.2802414598927!2d77.60084072507831!3d13.081417437244152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1942d5507d65%3A0xa8c76ce1c8fccd44!2sSriRama%20Arcade!5e0!3m2!1sen!2sin!4v1749327004252!5m2!1sen!2sin"
+                            width="100%" height="320" allowFullScreen="" loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -1135,10 +1502,76 @@
 
 
     </div> <!-- /.wrap -->
-    <footer>
-        © <span id="year"></span> Dyut Motors — All rights reserved.
-    </footer>
     <button id="scrollTopBtn" title="Go to top">↑</button>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- LEFT -->
+            <div class="footer-left">
+                <p><span class="icon">📞</span><strong> Phone:</strong> +91-9901820757</p>
+                <p><span class="icon">✉️</span><strong> Email:</strong>
+                    <a href="mailto:dyutmotors@gmail.com">dyutmotors@gmail.com</a>
+                </p>
+                <p><span class="icon">📍</span><strong> Address:</strong></p>
+                <p>
+                    #23B, GKVK Layout,<br>
+                    Sri Rama Arcade Rd, Jakkur,<br>
+                    Bangalore – 560064, India
+                </p>
+            </div>
+
+            <!-- CENTER -->
+            <div class="footer-center">
+                <p>© <span id="year"></span> <strong>Dyut Motors</strong> — All rights reserved.</p>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="footer-right">
+                <div class="follow">
+                    <span>Follow us</span>
+                    <div class="social-icons">
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="16" height="16">
+                                <path fill="#14206b" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 
+            52.24-50.06H295V6.26S282.43 4 262.09 4c-73.22 0-121.09 44.38-121.09 
+            124.72v70.62H89.09V288h51.91v224h100.17V288z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="16">
+                                <path fill="#14206b" d="M224.1 141c-63.6 0-114.9 51.3-114.9 
+            114.9s51.3 114.9 114.9 114.9S339 319.5 339 
+            255.9 287.7 141 224.1 141zm0 
+            189.6c-41.1 0-74.7-33.5-74.7-74.7 
+            s33.6-74.7 74.7-74.7 74.7 33.6 
+            74.7 74.7-33.6 74.7-74.7 
+            74.7zm146.4-194.3c0 14.9-12 26.9-26.9 
+            26.9s-26.9-12-26.9-26.9 12-26.9 
+            26.9-26.9 26.9 12 26.9 26.9zM398.8 
+            80c-7.8-20.7-22.8-37.7-43.5-45.5C336.4 
+            26.2 288.5 24 224.1 24s-112.4 
+            2.2-131.2 10.5c-20.7 7.8-35.8 
+            24.8-43.5 45.5C40.8 98.8 38.6 
+            146.7 38.6 211.1s2.2 112.4 
+            10.5 131.2c7.8 20.7 22.8 37.7 
+            43.5 45.5 18.8 8.3 66.7 10.5 
+            131.1 10.5s112.4-2.2 131.2-10.5c20.7-7.8 
+            35.8-24.8 43.5-45.5 8.3-18.8 
+            10.5-66.7 10.5-131.1s-2.2-112.4-10.5-131.2z" />
+                            </svg>
+                        </a>
+                        <!-- <a href="#" class="social-btn" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
 
     <script>
         // smooth scroll for internal links
@@ -1199,7 +1632,7 @@
             const body = `${message}\n\nContact: ${name}\n\nEmail: ${email}`;
             const subject = `Website inquiry from ${name}`;
 
-            const mailto = `mailto:support@dyutmotors.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const mailto = `mailto:dyutmotors@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
             window.location.href = mailto;
             status.textContent = 'Opening your mail client...';
@@ -1459,7 +1892,49 @@
             // allow keyboard left/right for accessibility
             document.addEventListener('keydown', onKey);
         })();
+        (function () {
+            const btn = document.getElementById('mobileMenuBtn');
+            // create overlay element once
+            let overlay = document.querySelector('.mobile-nav-overlay');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.className = 'mobile-nav-overlay';
+                // clone nav into overlay
+                const nav = document.querySelector('.dt-nav').cloneNode(true);
+                overlay.appendChild(nav);
+                document.body.appendChild(overlay);
+            }
 
+            function openMenu() {
+                btn.classList.add('open');
+                overlay.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                document.body.classList.add('has-mobile-menu-open');
+            }
+            function closeMenu() {
+                btn.classList.remove('open');
+                overlay.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('has-mobile-menu-open');
+            }
+
+            btn.addEventListener('click', (e) => {
+                if (overlay.classList.contains('open')) closeMenu(); else openMenu();
+            });
+
+            // close when tapping any link inside overlay
+            overlay.addEventListener('click', (e) => {
+                const a = e.target.closest('a');
+                if (a) closeMenu();
+                // clicking outside links will also close
+                if (e.target === overlay) closeMenu();
+            });
+
+            // close on escape
+            window.addEventListener('keydown', (ev) => {
+                if (ev.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
+            });
+        })();
 
     </script>
 
