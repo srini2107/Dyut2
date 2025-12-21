@@ -1,0 +1,46 @@
+<!-- xml -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Dyut Systems and Technologies logo">
+    <defs>
+        <linearGradient id="gD" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#6b6b6b"/>
+            <stop offset="1" stop-color="#141414"/>
+        </linearGradient>
+        <linearGradient id="gBlue1" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#0b61d6"/>
+            <stop offset="1" stop-color="#005bb5"/>
+        </linearGradient>
+        <linearGradient id="gBlue2" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#39a8ff"/>
+            <stop offset="1" stop-color="#0077d9"/>
+        </linearGradient>
+
+        <style>
+            .logo-title { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-weight:800; fill:#111; letter-spacing:4px; }
+            .logo-tag { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; fill:#666; font-weight:600; letter-spacing:2px; }
+            .dyut { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-weight:800; fill:#0b1320; letter-spacing:2px; }
+        </style>
+    </defs>
+
+    <!-- center group reduced vertical gap so D and swoosh sit closer -->
+    <g transform="translate(0,0)">
+        <!-- Large D: moved up slightly -->
+        <text x="50%" y="150" text-anchor="middle" font-size="200" class="logo-title" fill="url(#gD)">D</text>
+
+        <!-- Back swoosh - deeper curve placed nearer to the D -->
+        <path d="M80 250 C180 340 420 340 520 250 L503 236 C406 316 196 316 110 235 Z"
+              fill="url(#gBlue1)" />
+
+        <!-- Front swoosh - sits slightly above back swoosh with crisper edge -->
+        <path d="M100 262 C180 320 420 320 500 262 L488 250 C412 316 198 316 130 266 Z"
+              fill="url(#gBlue2)" />
+
+        <!-- Arrow tip integrated with end of swoosh -->
+        <path d="M500 262 L535 235 L520 256 Z" fill="#0b61d6" />
+
+        <!-- Wordmark: moved up to sit just below swoosh, slightly larger -->
+        <text x="50%" y="360" text-anchor="middle" font-size="52" class="dyut">DYUT</text>
+
+        <!-- Tagline: tightened spacing -->
+        <text x="50%" y="392" text-anchor="middle" font-size="14" class="logo-tag">SYSTEMS AND TECHNOLOGIES</text>
+    </g>
+</svg>
